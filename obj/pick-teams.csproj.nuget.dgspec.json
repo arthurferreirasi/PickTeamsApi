@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/arthurferreira/Documents/Dev/pick-teams/pick-teams.csproj": {}
+    "/Users/arthurferreira/Documents/Dev/PickTeamsApi/pick-teams.csproj": {}
   },
   "projects": {
-    "/Users/arthurferreira/Documents/Dev/pick-teams/pick-teams.csproj": {
+    "/Users/arthurferreira/Documents/Dev/PickTeamsApi/pick-teams.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/arthurferreira/Documents/Dev/pick-teams/pick-teams.csproj",
+        "projectUniqueName": "/Users/arthurferreira/Documents/Dev/PickTeamsApi/pick-teams.csproj",
         "projectName": "pick-teams",
-        "projectPath": "/Users/arthurferreira/Documents/Dev/pick-teams/pick-teams.csproj",
+        "projectPath": "/Users/arthurferreira/Documents/Dev/PickTeamsApi/pick-teams.csproj",
         "packagesPath": "/Users/arthurferreira/.nuget/packages/",
-        "outputPath": "/Users/arthurferreira/Documents/Dev/pick-teams/obj/",
+        "outputPath": "/Users/arthurferreira/Documents/Dev/PickTeamsApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/arthurferreira/.nuget/NuGet/NuGet.Config"

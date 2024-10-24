@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MarMOtpiaJgPxxMciTG/84NHl9t9SU6P2AMVdB6g4T3M4JjmBlCO94r78nI+BPHe3v+t1YFr5tFECzzwYklhZg==",
+  "dgSpecHash": "tjv/2FoVfcTE3ZLwnWSOwnRj7o1pO7TTXR95nOKO/RSBP1G/FTihoRTcWuana6WVNHkKWBblQUrr4qZ5nMTeiA==",
   "success": true,
-  "projectFilePath": "/Users/arthurferreira/Documents/Dev/pick-teams/pick-teams.csproj",
+  "projectFilePath": "/Users/arthurferreira/Documents/Dev/PickTeamsApi/pick-teams.csproj",
   "expectedPackageFiles": [
     "/Users/arthurferreira/.nuget/packages/microsoft.aspnetcore.openapi/8.0.0/microsoft.aspnetcore.openapi.8.0.0.nupkg.sha512",
     "/Users/arthurferreira/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
