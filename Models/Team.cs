@@ -1,9 +1,15 @@
+using Microsoft.AspNetCore.Mvc;
+
 public class Team {
-    public List<string> players { get; set; }
+
+    [BindProperty]
+    public List<Player> players { get; set; }
+
+    [BindProperty]
     public string teamName { get; set;}
 
     public Team()
     {
-        players = new List<string>();
+        players = new List<Player>();
     }
 }
