@@ -1,21 +1,22 @@
 public interface IPickTeamsService{
     List<Player> ShuffleList(List<Player> players);
-    List<Team> GetTeams(List<Player> players, int quantity);
+    TeamsList GetTeams(List<Player> players, int quantity);
     List<Player> GetSeedPlayers(List<Player> list);
-    List<Team> GetTeamsWithSeedPlayers(List<Player> players, int quantity);
-    List<Team> AddMissPlayers(List<Player> players, int quantity, List<Team> teamsList);
+    TeamsList GetTeamsWithSeedPlayers(List<Player> players, int quantity);
+    TeamsList AddMissPlayers(List<Player> players, int quantity, TeamsList teamsList);
 }
 
 public class PickTeamsService : IPickTeamsService
 {
+    private TeamsList teamsList;
     public List<Player> ShuffleList(List<Player> players)
     {
         var rdn = new Random();
         return players.OrderBy(x => rdn.Next()).ToList();
     }
-    public List<Team> GetTeams(List<Player> players, int quantity)
+    public TeamsList GetTeams(List<Player> players, int quantity)
     {
-        var teamsList = new List<Team>();
+        this.teamsList = new TeamsList();
         int indexName = 1;
         var team = new Team();
         for (int i = 0; i < players.Count; i++)
@@ -25,13 +26,13 @@ public class PickTeamsService : IPickTeamsService
             if (team.players.Count == quantity || i == players.Count - 1)
             {
                 team.teamName = "Time " + indexName;
-                teamsList.Add(team);
+                this.teamsList.teams.Add(team);
                 indexName++;
                 team = new Team();
             }
         }
 
-        return teamsList;
+        return this.teamsList;
     }
 
     public List<Player> GetSeedPlayers(List<Player> list)
@@ -39,12 +40,12 @@ public class PickTeamsService : IPickTeamsService
         return list.Where(x => x.isSeed == true).ToList();
     }
 
-    public List<Team> GetTeamsWithSeedPlayers(List<Player> players, int quantity)
+    public TeamsList GetTeamsWithSeedPlayers(List<Player> players, int quantity)
     {
         int countTeams = players.Count % quantity == 0 ? players.Count / quantity : players.Count / quantity + 1;
         int index = 1;
-        var teamsList = new List<Team>();
         var team = new Team();
+        this.teamsList = new TeamsList();
         var allTeamsSeeded = false;
 
         var seedPlayers = GetSeedPlayers(players);
@@ -58,7 +59,7 @@ public class PickTeamsService : IPickTeamsService
                 {
                     team.teamName = "Time " + index;
                     team.players.Add(seedPlayers[i]);
-                    teamsList.Add(team);
+                    this.teamsList.teams.Add(team);
                     index++;
                     team = new Team();
                 }
@@ -66,35 +67,35 @@ public class PickTeamsService : IPickTeamsService
                 {
                     allTeamsSeeded = true;
                     index = 0;
-                    teamsList[index].players.Add(seedPlayers[i]);
+                    this.teamsList.teams[index].players.Add(seedPlayers[i]);
                     index++;
                 }
             }
             else
             {
-                teamsList[index].players.Add(seedPlayers[i]);
+                 this.teamsList.teams[index].players.Add(seedPlayers[i]);
                 index++;
             }
         }
 
-        teamsList = AddMissPlayers(players, quantity, teamsList);
+        this.teamsList = AddMissPlayers(players, quantity, this.teamsList);
 
-        return teamsList;
+        return this.teamsList;
     }
 
-    public List<Team> AddMissPlayers(List<Player> players, int quantity, List<Team> teamsList)
+    public TeamsList AddMissPlayers(List<Player> players, int quantity, TeamsList teamsList)
     {
         var index = 0;
         for (int i = 0; i < players.Count; i++)
         {
-            teamsList[index].players.Add(players[i]);
+             this.teamsList.teams[index].players.Add(players[i]);
 
-            if (teamsList[index].players.Count == quantity || i == players.Count - 1)
+            if ( this.teamsList.teams[index].players.Count == quantity || i == players.Count - 1)
             {
                 index++;
             }
         }
 
-        return teamsList;
+        return this.teamsList;
     }
 }
