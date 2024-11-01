@@ -13,11 +13,3 @@ public class Team {
         players = new List<Player>();
     }
 }
-
-public class TeamsList {
-    public List<Team> teams { get; set; }
-
-    public TeamsList(){
-        teams = new List<Team>();
-    }
-}
