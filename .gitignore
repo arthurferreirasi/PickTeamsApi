@@ -1,16 +1,11 @@
-# Build Folders
 /bin
 /obj
 
-# Logs
 *.log
 
-# Environment variables
 .env
 
-# Configuration files
 appsettings.Development.json
 
-# macOS
 .DS_Store
 
